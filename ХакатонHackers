@@ -1,0 +1,18 @@
+import docx2txt
+
+#определяем путь к файлу
+docx_file_path = "document.docx"
+
+#название главы, из который нужно извлечь текст
+chapter_title = "Методы испытаний"
+
+#Извлекаем текст из документа Word.
+text = docx2txt.process(docx_file_path)
+
+#Ищем в документе название главы и извлекаем из нее текст.
+start_index = text.find(chapter_title)
+if start_index != -1:
+    text = text[start_index + len(chapter_title):]
+
+#выводим текст на экран
+print(text)
